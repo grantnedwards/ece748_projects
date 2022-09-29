@@ -1,0 +1,2 @@
+comp_decode_test_pkg:
+	vlog $(ECE748_PROJECT_HOME)/verification_ip/interface_packages/decode_test_pkg/decode_test_pkg.sv $(ECE748_PROJECT_HOME)/verification_ip/interface_packages/decode_test_pkg/src/decode_test_sequence.sv $(ECE748_PROJECT_HOME)/verification_ip/interface_packages/decode_test_pkg/src/decode_in_random_sequence.sv

@@ -6,7 +6,7 @@ class decode_in_agent extends uvm_ageent;
     decode_in_monitor mon;
     bit coverage;
     bit enabled;
-
+    ///
     `uvm_component_utils(decode_in_agent)
     
     function new(string name="decode_in_agent", uvm_component parent=null);

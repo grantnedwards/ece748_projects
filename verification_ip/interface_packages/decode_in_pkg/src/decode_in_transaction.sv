@@ -4,6 +4,8 @@ class decode_in_transaction extends uvm_sequence_item;
         `uvm_field_int()
     `uvm_object_utils_end
 
+    rand op_t op;
+
 
 
     function new(string name = "decode_in_transaction");
@@ -13,6 +15,15 @@ class decode_in_transaction extends uvm_sequence_item;
 
     virtual function string convert2string();
         ///$sformatf(super.convert2string());
+    endfunction
+
+    function void randomize_transaction();
+        case(op_t)
+            ADD: begin 
+
+                 end
+        endcase
+
     endfunction
 
     virtual function void add_to_wave();

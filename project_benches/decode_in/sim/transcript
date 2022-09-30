@@ -13,11 +13,8 @@
 # //  18 U.S.C. Section 1905.
 # //
 # vsim -sv_seed 1 "+UVM_TESTNAME=test_top" "+UVM_VERBOSITY=UVM_HIGH" "+notimingchecks" -suppress 8887 -classdebug -uvmcontrol=all -do " coverage save -onexit test_top.ucdb; set IterationLimit 140000; set NoQuitOnFinish 1; onbreak {resume}; " hdl_top hvl_top 
-# Start time: 23:16:13 on Sep 29,2022
+# Start time: 23:52:07 on Sep 29,2022
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# ** Warning: ../../../verification_ip/interface_packages/decode_in_pkg/src/decode_in_transaction.sv(25): (vopt-2250) Function "convert2string" has no return value assignment.
-# ** Warning: ../../../verification_ip/interface_packages/decode_in_pkg/src/decode_in_config.sv(14): (vopt-2250) Function "convert2string" has no return value assignment.
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=2.
 # Loading sv_std.std
 # Loading work.decode_in_driver_bfm(fast)
 # Loading work.decode_in_monitor_bfm(fast)
@@ -37,95 +34,12 @@
 # Loading work.decode_test_pkg(fast)
 # Loading work.hvl_top_sv_unit(fast)
 # Loading work.hvl_top(fast)
-# Loading /mnt/apps/public/COE/mg_apps/questa2022.2/questasim/uvm-1.1d/linux/uvm_dpi.so
-#  coverage save -onexit test_top.ucdb
-#  set IterationLimit 140000
-# 140000
-#  set NoQuitOnFinish 1
-# 1
-#  onbreak {resume}
-#  Warning: onbreak command for use within macro
-#  
-add wave -position insertpoint sim:/hdl_top/decode_in_bus/*
-run -all
-# ----------------------------------------------------------------
-# UVM-1.1d
-# (C) 2007-2013 Mentor Graphics Corporation
-# (C) 2007-2013 Cadence Design Systems, Inc.
-# (C) 2006-2013 Synopsys, Inc.
-# (C) 2011-2013 Cypress Semiconductor Corp.
-# ----------------------------------------------------------------
-# 
-#   ***********       IMPORTANT RELEASE NOTES         ************
-# 
-#   You are using a version of the UVM library that has been compiled
-#   with `UVM_NO_DEPRECATED undefined.
-#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
-# 
-#   You are using a version of the UVM library that has been compiled
-#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
-#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
-# 
-#       (Specify +UVM_NO_RELNOTES to turn off this notice)
-# 
-# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(277) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
-# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(278) @ 0: reporter [Questa UVM]  questa_uvm::init(all)
-# UVM_INFO @ 0: reporter [RNTST] Running test test_top...
-# UVM_INFO ../tb/tests/src/test_top.sv(31) @ 0: uvm_test_top [INFO] test_top build phase complete
-# UVM_INFO ../../../verification_ip/interface_packages/decode_in_pkg/src/decode_in_driver.sv(12) @ 0: uvm_test_top.decode_in_agent.drv [INFO] Build phase of Driver ran
-# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(339) @ 0: reporter [Questa UVM] End Of Elaboration
-# **************************************************************************
-# * Questa UVM Transaction Recording Turned ON.                            *
-# * recording_detail has been set.                                         *
-# *  To turn off, set 'recording_detail' to off:                           *
-# * uvm_config_db#(int)            ::set(null, "", "recording_detail", 0); *
-# * uvm_config_db#(uvm_bitstream_t)::set(null, "", "recording_detail", 0); *
-# **************************************************************************
-# UVM_INFO ../../../verification_ip/interface_packages/decode_in_pkg/src/decode_in_sequence.sv(15) @ 0: uvm_test_top.decode_in_agent.seqr@@seq [SEQUENCE] Sending transaction to Driver:
-# UVM_INFO ../../../verification_ip/interface_packages/decode_in_pkg/src/decode_in_sequence.sv(15) @ 15: uvm_test_top.decode_in_agent.seqr@@seq [SEQUENCE] Sending transaction to Driver:
-# UVM_INFO ../../../verification_ip/interface_packages/decode_in_pkg/src/decode_in_sequence.sv(15) @ 25: uvm_test_top.decode_in_agent.seqr@@seq [SEQUENCE] Sending transaction to Driver:
-# UVM_INFO ../../../verification_ip/interface_packages/decode_in_pkg/src/decode_in_sequence.sv(15) @ 35: uvm_test_top.decode_in_agent.seqr@@seq [SEQUENCE] Sending transaction to Driver:
-# UVM_INFO ../../../verification_ip/interface_packages/decode_in_pkg/src/decode_in_sequence.sv(15) @ 45: uvm_test_top.decode_in_agent.seqr@@seq [SEQUENCE] Sending transaction to Driver:
-# UVM_INFO ../../../verification_ip/interface_packages/decode_in_pkg/src/decode_in_sequence.sv(15) @ 55: uvm_test_top.decode_in_agent.seqr@@seq [SEQUENCE] Sending transaction to Driver:
-# UVM_INFO ../../../verification_ip/interface_packages/decode_in_pkg/src/decode_in_sequence.sv(15) @ 65: uvm_test_top.decode_in_agent.seqr@@seq [SEQUENCE] Sending transaction to Driver:
-# UVM_INFO ../../../verification_ip/interface_packages/decode_in_pkg/src/decode_in_sequence.sv(15) @ 75: uvm_test_top.decode_in_agent.seqr@@seq [SEQUENCE] Sending transaction to Driver:
-# UVM_INFO ../../../verification_ip/interface_packages/decode_in_pkg/src/decode_in_sequence.sv(15) @ 85: uvm_test_top.decode_in_agent.seqr@@seq [SEQUENCE] Sending transaction to Driver:
-# UVM_INFO ../../../verification_ip/interface_packages/decode_in_pkg/src/decode_in_sequence.sv(15) @ 95: uvm_test_top.decode_in_agent.seqr@@seq [SEQUENCE] Sending transaction to Driver:
-# UVM_INFO ../../../verification_ip/interface_packages/decode_in_pkg/src/decode_in_sequence.sv(15) @ 105: uvm_test_top.decode_in_agent.seqr@@seq [SEQUENCE] Sending transaction to Driver:
-# UVM_INFO ../../../verification_ip/interface_packages/decode_in_pkg/src/decode_in_sequence.sv(15) @ 115: uvm_test_top.decode_in_agent.seqr@@seq [SEQUENCE] Sending transaction to Driver:
-# UVM_INFO ../../../verification_ip/interface_packages/decode_in_pkg/src/decode_in_sequence.sv(15) @ 125: uvm_test_top.decode_in_agent.seqr@@seq [SEQUENCE] Sending transaction to Driver:
-# UVM_INFO ../../../verification_ip/interface_packages/decode_in_pkg/src/decode_in_sequence.sv(15) @ 135: uvm_test_top.decode_in_agent.seqr@@seq [SEQUENCE] Sending transaction to Driver:
-# UVM_INFO ../../../verification_ip/interface_packages/decode_in_pkg/src/decode_in_sequence.sv(15) @ 145: uvm_test_top.decode_in_agent.seqr@@seq [SEQUENCE] Sending transaction to Driver:
-# UVM_INFO ../../../verification_ip/interface_packages/decode_in_pkg/src/decode_in_sequence.sv(15) @ 155: uvm_test_top.decode_in_agent.seqr@@seq [SEQUENCE] Sending transaction to Driver:
-# UVM_INFO ../../../verification_ip/interface_packages/decode_in_pkg/src/decode_in_sequence.sv(15) @ 165: uvm_test_top.decode_in_agent.seqr@@seq [SEQUENCE] Sending transaction to Driver:
-# UVM_INFO ../../../verification_ip/interface_packages/decode_in_pkg/src/decode_in_sequence.sv(15) @ 175: uvm_test_top.decode_in_agent.seqr@@seq [SEQUENCE] Sending transaction to Driver:
-# UVM_INFO ../../../verification_ip/interface_packages/decode_in_pkg/src/decode_in_sequence.sv(15) @ 185: uvm_test_top.decode_in_agent.seqr@@seq [SEQUENCE] Sending transaction to Driver:
-# UVM_INFO ../../../verification_ip/interface_packages/decode_in_pkg/src/decode_in_sequence.sv(15) @ 195: uvm_test_top.decode_in_agent.seqr@@seq [SEQUENCE] Sending transaction to Driver:
-# UVM_INFO ../../../verification_ip/interface_packages/decode_in_pkg/src/decode_in_sequence.sv(15) @ 205: uvm_test_top.decode_in_agent.seqr@@seq [SEQUENCE] Sending transaction to Driver:
-# UVM_INFO ../../../verification_ip/interface_packages/decode_in_pkg/src/decode_in_sequence.sv(15) @ 215: uvm_test_top.decode_in_agent.seqr@@seq [SEQUENCE] Sending transaction to Driver:
-# UVM_INFO ../../../verification_ip/interface_packages/decode_in_pkg/src/decode_in_sequence.sv(15) @ 225: uvm_test_top.decode_in_agent.seqr@@seq [SEQUENCE] Sending transaction to Driver:
-# UVM_INFO ../../../verification_ip/interface_packages/decode_in_pkg/src/decode_in_sequence.sv(15) @ 235: uvm_test_top.decode_in_agent.seqr@@seq [SEQUENCE] Sending transaction to Driver:
-# UVM_INFO ../../../verification_ip/interface_packages/decode_in_pkg/src/decode_in_sequence.sv(15) @ 245: uvm_test_top.decode_in_agent.seqr@@seq [SEQUENCE] Sending transaction to Driver:
-# UVM_INFO ../../../verification_ip/interface_packages/decode_in_pkg/src/decode_in_sequence.sv(15) @ 255: uvm_test_top.decode_in_agent.seqr@@seq [SEQUENCE] Sending transaction to Driver:
-# UVM_INFO ../tb/tests/src/test_top.sv(40) @ 265: uvm_test_top [INFO] test_top run phase complete
-# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 265: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
-# 
-# --- UVM Report Summary ---
-# 
-# ** Report counts by severity
-# UVM_INFO :   34
-# UVM_WARNING :    0
-# UVM_ERROR :    0
-# UVM_FATAL :    0
-# ** Report counts by id
-# [INFO]     3
-# [Questa UVM]     3
-# [RNTST]     1
-# [SEQUENCE]    26
-# [TEST_DONE]     1
-# ** Note: $finish    : /mnt/apps/public/COE/mg_apps/questa2022.2/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
-#    Time: 265 ns  Iteration: 61  Instance: /hvl_top
-# Break in Task uvm_pkg/uvm_root::run_test at /mnt/apps/public/COE/mg_apps/questa2022.2/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_root.svh line 430
-# Saving coverage database on exit...
-# End time: 23:17:39 on Sep 29,2022, Elapsed time: 0:01:26
-# Errors: 0, Warnings: 4
+# ** Error: (vsim-8220) This or another usage of 'bus.enable_decode' inconsistent with 'net' object.
+#    Time: 0 ns  Iteration: 0  Instance: /hdl_top/driver_bfm File: ../../../verification_ip/interface_packages/decode_in_pkg/src/decode_in_driver_bfm.sv Line: 18
+# ** Error: (vsim-8220) This or another usage of 'bus.instr_dout' inconsistent with 'net' object.
+#    Time: 0 ns  Iteration: 0  Instance: /hdl_top/driver_bfm File: ../../../verification_ip/interface_packages/decode_in_pkg/src/decode_in_driver_bfm.sv Line: 14
+# ** Error: (vsim-8220) This or another usage of 'bus.npc_in' inconsistent with 'net' object.
+#    Time: 0 ns  Iteration: 0  Instance: /hdl_top/driver_bfm File: ../../../verification_ip/interface_packages/decode_in_pkg/src/decode_in_driver_bfm.sv Line: 13
+# Error loading design
+# End time: 23:52:10 on Sep 29,2022, Elapsed time: 0:00:03
+# Errors: 3, Warnings: 2

@@ -33,8 +33,13 @@ class test_top extends uvm_test;
 
     virtual task run_phase(uvm_phase phase);
       phase.raise_objection(this);
+        cfg.monitor_bfm.wait_for_reset();
+        cfg.monitor_bfm.wait_for_num_clocks(10);
         seq = decode_in_sequence::type_id::create("seq", this);
+        cfg.driver_bfm.drive_enable();
         if(cfg.enabled) seq.start(agt.seqr);
+        cfg.driver_bfm.drive_de_enable();
+        cfg.monitor_bfm.wait_for_num_clocks(5);
       phase.drop_objection(this);
 
       `uvm_info("INFO", "test_top run phase complete", UVM_LOW);

@@ -5,4 +5,5 @@ interface decode_in_if #()(
     input tri                           enable_decode,
     inout tri [15:0]                    instr_dout,
     input tri                           psr
-)
+);
+endinterface

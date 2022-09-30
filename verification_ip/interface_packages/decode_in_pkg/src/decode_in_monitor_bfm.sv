@@ -4,7 +4,8 @@ interface decode_in_monitor_bfm(decode_in_if bus);
     logic [15:0] npc_in;
     logic enable_decode;
     logic [15:0] instr_dout;
-    event run;
+    event go;
+    decode_in_pkg::decode_in_monitor proxy;
 
     assign clock =          bus.clock;
     assign reset =          bus.reset;
@@ -12,22 +13,33 @@ interface decode_in_monitor_bfm(decode_in_if bus);
     assign enable_decode =  bus.enable_decode;
     assign instr_dout =     bus.instr_dout;
 
-    decode_in_pkg::decode_in_monitor mon;
+
+
+    task do_monitor(output bit[15:0] npc, output bit[15:0] instr);
+      npc = npc_in;
+      instr = instr_dout;
+    endtask
+
+    task wait_for_reset();
+      wait(!reset);
+      @(posedge clock);
+    endtask
+
+    task wait_for_num_clocks(input int unsigned count);
+      @(posedge clock);
+      repeat(count-1)@(posedge clock);
+    endtask
 
     initial begin
-        @run;
+        @go;
         forever begin
+            logic [15:0] temp_npc_in, temp_instr_dout;
             @(posedge clock);
             if(enable_decode)begin
-                mon.trans = new("trans");
-                mon.trans.instr_dout = instr_dout;
-                mon.trans.npc_in = npc_in;
-                mon.trans.timestamp = $time;
-                //if(mon.transaction_viewing) mon.trans.add_to_wave(mon.num_transactions)
-                mon.mon_ap.write(mon.trans);
+                do_monitor(temp_npc_in, temp_instr_dout);
+                proxy.notify_transaction(temp_npc_in, temp_instr_dout);
             end
         end
-
     end
 
 

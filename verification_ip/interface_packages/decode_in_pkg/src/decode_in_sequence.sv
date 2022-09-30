@@ -8,9 +8,11 @@ class decode_in_sequence extends uvm_sequence #(decode_in_transaction);
 
     virtual task body();
         trans = new("trans");
-        repeat(25)begin
+        repeat(26)begin
             start_item(trans);
-            trans.randomize();
+            assert(trans.randomize());
+            if(!trans.randomize()) `uvm_fatal("decode_in_sequence", "Could not randomize driver sequence")
+              `uvm_info("SEQUENCE", {"Sending transaction to Driver:", trans.convert2string()}, UVM_MEDIUM);
             finish_item(trans);
         end
     endtask

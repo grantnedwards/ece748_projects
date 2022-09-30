@@ -21,5 +21,4 @@ class decode_in_driver extends uvm_driver #(decode_in_transaction);
         end
     endtask
 
-    
 endclass

@@ -1,7 +1,8 @@
 class decode_in_transaction extends uvm_sequence_item;
     time start_time, end_time;
-    bit [15:0] npc_in = 16'h3001;
+    bit [15:0] npc_in = 16'h3000;
     logic [15:0] instr_dout;
+
     `uvm_object_utils_begin(decode_in_transaction)
         `uvm_field_int(start_time, UVM_ALL_ON)
         `uvm_field_int(end_time, UVM_ALL_ON)
@@ -21,11 +22,11 @@ class decode_in_transaction extends uvm_sequence_item;
         super.new(name);
     endfunction
 
-
     virtual function string convert2string();
-        $sformatf("NPC input: 0x%h,  Instruction Output: 0x%h", npc_in, instr_dout);
+        return {super.convert2string(), $sformatf("NPC input: 0x%h,  Instruction Output: 0x%h, %s", npc_in, instr_dout, op)};
     endfunction
 
+    // Randomize instructions to feed into design - only valid instructions
     function void post_randomize();
         case(op)
             ADD:    instr_dout = randADD ? {ADD, DR, SR1, 3'b000, SR2} : {ADD, DR, SR1, 1'b1, imm5};
@@ -43,13 +44,15 @@ class decode_in_transaction extends uvm_sequence_item;
         endcase
     endfunction
 
-    virtual function void add_to_wave(int trans_num);
-        int trans_view;
-        trans_view = $begin_transaction(trans_num, "decode_in_transaction", start_time);
-        $add_attribute(trans_view, npc_in, "npc_in");
-        $add_attribute(trans_view, instr_dout, "instr_dout");
-        $end_transaction(trans_view, end_time);
-        $free_transaction(trans_view);
+    // Later Use
+    virtual function void add_to_wave(int transaction_viewing_stream_h);
+        int transaction_view_h;
+        transaction_view_h = $begin_transaction(transaction_viewing_stream_h, "decode_in_transaction", start_time);
+        $add_attribute(transaction_view_h, npc_in, "npc_in");
+        $add_attribute(transaction_view_h, instr_dout, "instr_dout");
+        //$add_attribute(transaction_view_h, enable_decode, "enable_decode");
+        $end_transaction(transaction_view_h, end_time);
+        $free_transaction(transaction_view_h);
     endfunction
 
 endclass

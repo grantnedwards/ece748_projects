@@ -18,7 +18,7 @@ comp_test_bench:
 	vlog -sv ../tb/testbench/hdl_top.sv ../tb/testbench/hvl_top.sv
 
 p1_debug: comp_data_types_pkg comp_decode_in_pkg comp_decode_test_pkg comp_test_bench
-	vsim -sv_seed 1 +UVM_TESTNAME=test_top +UVM_VERBOSITY=UVM_HIGH +notimingchecks -suppress 8887 -classdebug -uvmcontrol=all -do " coverage save -onexit test_top.ucdb; set IterationLimit 140000; set NoQuitOnFinish 1; onbreak {resume}; " hdl_top hvl_top
+	vsim -sv_seed 1 +UVM_TESTNAME=test_top +UVM_VERBOSITY=UVM_HIGH +notimingchecks -suppress 8887 -classdebug -uvmcontrol=all -do " coverage save -onexit test_top.ucdb; set IterationLimit 140000; set NoQuitOnFinish 1; onbreak {resume}; run 0; do wave.do; " hdl_top hvl_top
 
 clean:
 	rm -rf work

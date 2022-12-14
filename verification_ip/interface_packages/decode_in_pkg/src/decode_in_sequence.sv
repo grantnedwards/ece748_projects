@@ -10,7 +10,6 @@ class decode_in_sequence extends uvm_sequence #(decode_in_transaction);
         trans = new("trans");
         repeat(25)begin
             start_item(trans);
-            //assert(trans.randomize());
             if(!trans.randomize()) `uvm_fatal("decode_in_sequence", "Could not randomize driver sequence")
               `uvm_info("SEQUENCE", {"Sending transaction to Driver:", trans.convert2string()}, UVM_MEDIUM);
             finish_item(trans);

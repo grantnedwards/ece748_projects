@@ -2,7 +2,7 @@ import uvm_pkg::*;
 module hdl_top();
   logic clk;
   logic rst;
-  logic en;
+  wire en;
   logic psr;
   wire [15:0] dout;
   wire [15:0] npc_in;
@@ -18,7 +18,7 @@ module hdl_top();
 
   initial begin: gen_rst
     rst = 1'b1;
-    #15;
+    #40;
     rst = 1'b0;
   end
 

@@ -1,29 +1,28 @@
-class decode_in_coverage extends uvm_subscriber #(decode_in_transaction);
+class decode_in_coverage extends uvm_subscriber #(.T(decode_in_transaction));
     `uvm_component_utils(decode_in_coverage)
 
-    op_t op;
-    logic[15:0] npc_in;
+    T trans;
 
     covergroup decode_in_transaction_cg;
       option.per_instance = 1;
-      option.name = get_full_name();
+      option.auto_bin_max = 2048;
 
-      op_type : coverpoint op
-      {
-          bins ADD  = {ADD};
-          bins AND  = {AND};
-          bins NOT  = {NOT};
-          bins LD   = {LD};
-          bins LDR  = {LDR};
-          bins LDI  = {LDI};
-          bins LEA  = {LEA};
-          bins ST   = {ST};
-          bins STR  = {STR};
-          bins STI  = {STI};
-          bins BR   = {BR};
-          bins JMP  = {JMP};
-      }
-      coverpoint npc_in;
+      start_time:   coverpoint trans.start_time;
+      end_time:     coverpoint trans.end_time;
+      npc_in:       coverpoint trans.npc_in;
+      instr_dout:   coverpoint trans.instr_dout;
+      op:           coverpoint trans.op;
+      nzp:          coverpoint trans.nzp;
+      randAND:      coverpoint trans.randAND;
+      randADD:      coverpoint trans.randADD;
+      DR:           coverpoint trans.DR;
+      SR1:          coverpoint trans.SR1;
+      SR2:          coverpoint trans.SR2;
+      BaseR:        coverpoint trans.BaseR;
+      SR:           coverpoint trans.SR;
+      imm5:         coverpoint trans.imm5;
+      PCoffset6:    coverpoint trans.PCoffset6;
+      PCoffset9:    coverpoint trans.PCoffset9;
     endgroup
 
     function new(string name="decode_in_coverage", uvm_component parent = null);
@@ -32,13 +31,14 @@ class decode_in_coverage extends uvm_subscriber #(decode_in_transaction);
     endfunction
 
     virtual function void write(decode_in_transaction t);
-        npc_in = t.npc_in;
-        op = t.op;
+        `uvm_info("COVERAGE", "Transaction Received", UVM_MEDIUM);
+        trans = t;
         decode_in_transaction_cg.sample();
     endfunction
 
     virtual function void build_phase(uvm_phase phase);
-        super.build_phase(phase);
+        decode_in_transaction_cg.set_inst_name($sformatf("decode_in_transaction_cg_%s", get_full_name()));
+        `uvm_info("INFO", "decode_in_coverage entered the build phase", UVM_LOW);
     endfunction
 
 

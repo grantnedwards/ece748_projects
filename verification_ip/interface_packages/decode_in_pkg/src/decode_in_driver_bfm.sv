@@ -20,13 +20,11 @@ interface decode_in_driver_bfm(decode_in_if bus);
     endtask
 
     task drive_enable();
-        @(posedge clock);
-            en = 1'b1;
+        en = 1'b1;
     endtask
 
     task drive_de_enable();
-        @(posedge clock);
-            en = 1'b0;
+        en = 1'b0;
     endtask
 
 endinterface

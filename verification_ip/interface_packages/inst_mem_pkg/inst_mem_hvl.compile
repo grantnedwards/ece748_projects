@@ -1,0 +1,7 @@
+needs:
+  - $UVMF_HOME/uvmf_base_pkg/uvmf_base_pkg.compile
+  - ./inst_mem_common.compile
+incdir:
+  - .
+src:
+  - inst_mem_pkg.sv

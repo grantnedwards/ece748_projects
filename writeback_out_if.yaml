@@ -1,0 +1,48 @@
+uvmf:
+  interfaces:
+    "writeback_out":
+       clock: "clock"
+       reset: "reset"
+       reset_assertion_level: "True"
+       hdl_typedefs:
+         - name: "writeback_enb_out_trans"
+           type: "bit"
+         - name: "psr_t"
+           type: "bit [2:0]"
+         - name: "VSR1_t"
+           type: "bit [15:0]"
+         - name: "VSR2_t"
+           type: "bit [15:0]"
+       ports:
+         - name : "writeback_enb_out"
+           width: "1"
+           dir:   "input"
+         - name:  "psr"
+           width: "3"
+           dir:   "input"
+         - name:  "VSR1"
+           width: "16"
+           dir:   "input"
+         - name:  "VSR2"
+           width: "16"
+           dir:   "input" 
+       transaction_vars:
+         - name: "writeback_enb_out"
+           type: "writeback_enb_out_trans"
+           isrand: "False"
+           iscompare: "False"
+         - name: "psr"
+           type: "psr_t"
+           isrand: "False"
+           iscompare: "True"
+         - name: "VSR1"
+           type: "VSR1_t"
+           isrand: "False"
+           iscompare: "True"
+         - name: "VSR2"
+           type: "VSR2_t"
+           isrand: "False"
+           iscompare: "True"
+         
+
+

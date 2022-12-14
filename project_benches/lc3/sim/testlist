@@ -1,0 +1,12 @@
+# Test list
+# Format: test name, seed
+test_top, 64234323
+test_top, 4532234
+ctrl_test, 51443222
+load_test, 45322389
+store_test, 45322389
+alu_test, 75783472
+test_top, 78322389
+
+
+

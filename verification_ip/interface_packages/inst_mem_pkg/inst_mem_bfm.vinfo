@@ -1,0 +1,6 @@
+@use $UVMF_HOME/uvmf_base_pkg/uvmf_base_pkg_hdl.vinfo
+@use inst_mem_pkg_hdl.vinfo
++incdir+@vinfodir
+src/inst_mem_if.sv
+src/inst_mem_driver_bfm.sv
+src/inst_mem_monitor_bfm.sv

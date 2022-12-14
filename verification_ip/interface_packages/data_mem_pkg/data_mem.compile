@@ -1,0 +1,3 @@
+needs:
+  - data_mem_hvl.compile
+  - data_mem_hdl.compile

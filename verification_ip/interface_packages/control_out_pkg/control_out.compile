@@ -1,0 +1,3 @@
+needs:
+  - control_out_hvl.compile
+  - control_out_hdl.compile

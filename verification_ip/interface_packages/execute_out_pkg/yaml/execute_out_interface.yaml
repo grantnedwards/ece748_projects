@@ -1,0 +1,139 @@
+uvmf:
+  interfaces:
+    execute_out:
+      clock: clock
+      config_constraints: []
+      config_vars: []
+      existing_library_component: 'True'
+      gen_inbound_streaming_driver: 'False'
+      hdl_pkg_parameters: []
+      hdl_typedefs:
+      - name: W_Control_out_t
+        type: bit [1:0]
+      - name: Mem_Control_out_t
+        type: bit
+      - name: aluout_t
+        type: bit [15:0]
+      - name: pcout_t
+        type: bit [15:0]
+      - name: dr_t
+        type: bit [2:0]
+      - name: sr1_t
+        type: bit [2:0]
+      - name: sr2_t
+        type: bit [2:0]
+      - name: IR_Exec_t
+        type: bit [15:0]
+      - name: NZP_t
+        type: bit [2:0]
+      - name: M_Data_t
+        type: bit [15:0]
+      hvl_pkg_parameters: []
+      hvl_typedefs: []
+      parameters: []
+      ports:
+      - dir: input
+        name: W_Control_out
+        reset_value: '''bz'
+        width: '2'
+      - dir: input
+        name: Mem_Control_out
+        reset_value: '''bz'
+        width: '1'
+      - dir: input
+        name: aluout
+        reset_value: '''bz'
+        width: '16'
+      - dir: input
+        name: pcout
+        reset_value: '''bz'
+        width: '16'
+      - dir: input
+        name: dr
+        reset_value: '''bz'
+        width: '3'
+      - dir: input
+        name: sr1
+        reset_value: '''bz'
+        width: '3'
+      - dir: input
+        name: sr2
+        reset_value: '''bz'
+        width: '3'
+      - dir: input
+        name: IR_Exec
+        reset_value: '''bz'
+        width: '16'
+      - dir: input
+        name: NZP
+        reset_value: '''bz'
+        width: '3'
+      - dir: input
+        name: M_Data
+        reset_value: '''bz'
+        width: '16'
+      reset: reset
+      reset_assertion_level: 'True'
+      transaction_constraints: []
+      transaction_vars:
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: W_Control_out
+        type: W_Control_out_t
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: Mem_Control_out
+        type: Mem_Control_out_t
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: aluout
+        type: aluout_t
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: pcout
+        type: pcout_t
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: dr
+        type: dr_t
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: sr1
+        type: sr1_t
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: sr2
+        type: sr2_t
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: IR_Exec
+        type: IR_Exec_t
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: NZP
+        type: NZP_t
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: M_Data
+        type: M_Data_t
+        unpacked_dimension: ''
+      use_dpi_link: 'False'

@@ -1,0 +1,1 @@
+$UVMF_VIP_LIBRARY_HOME/environment_packages/decode_env_pkg/decode_env_pkg.sv

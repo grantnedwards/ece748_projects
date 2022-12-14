@@ -1,0 +1,8 @@
+needs:
+  - $UVMF_HOME/uvmf_base_pkg/uvmf_base_pkg.compile
+  - ../../../verification_ip/interface_packages/control_in_pkg/control_in_hvl.compile
+  - ../../../verification_ip/interface_packages/control_out_pkg/control_out_hvl.compile
+
+src:
+  - control_env_pkg.sv
+

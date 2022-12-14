@@ -1,0 +1,9 @@
+needs:
+  - $UVMF_HOME/uvmf_base_pkg/uvmf_base_pkg_hdl.compile
+  - ./inst_mem_common.compile
+incdir:
+  - .
+src:
+  - src/inst_mem_if.sv
+  - src/inst_mem_monitor_bfm.sv
+  - src/inst_mem_driver_bfm.sv

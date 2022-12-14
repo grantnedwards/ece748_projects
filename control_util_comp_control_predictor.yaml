@@ -1,0 +1,11 @@
+uvmf:
+  util_components:
+    control_predictor:
+      analysis_exports:
+      - name: agent_control_in_ae
+        type: control_in_transaction
+      analysis_ports:
+      - name: scoreboard_ap
+        type: control_out_transaction
+      existing_library_component: 'True'
+      type: predictor

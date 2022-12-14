@@ -1,0 +1,129 @@
+uvmf:
+  interfaces:
+    inst_mem:
+      clock: clock
+      config_constraints: []
+      config_vars: []
+      existing_library_component: 'True'
+      gen_inbound_streaming_driver: 'False'
+      hdl_pkg_parameters: []
+      hdl_typedefs:
+      - name: op_t
+        type: enum bit [3:0] {ADD=4'b0001, AND=4'b0101, NOT=4'b1001, LD=4'b0010, LDR=4'b0110, LDI=4'b1010, LEA=4'b1110, ST=4'b0011, STR=4'b0111, STI=4'b1011, BR=4'b0000, JMP=4'b1100}
+      - name: word
+        type: bit [15:0]
+      hvl_pkg_parameters: []
+      hvl_typedefs: []
+      parameters: []
+      ports:
+      - dir: output
+        name: PC
+        reset_value: '''bz'
+        width: '16'
+      - dir: output
+        name: instrmem_rd
+        reset_value: '''bz'
+        width: '1'
+      - dir: input
+        name: instr_dout
+        reset_value: '''bz'
+        width: '16'
+      - dir: input
+        name: complete_instr
+        reset_value: '''bz'
+        width: '1'
+      reset: reset
+      reset_assertion_level: 'True'
+      transaction_constraints:
+      - comment: ''
+        name: opcode_c
+        value: '{instr_dout[15:12] inside {ADD, AND, NOT, BR, JMP, LD, LDR, LDI, LEA, ST, STR, STI};}'
+      - comment: ''
+        name: nzp_c
+        value: '{$countones(nzp) != 0;}'
+      transaction_vars:
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'True'
+        name: opcode
+        type: op_t
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'True'
+        name: sr1
+        type: bit [2:0]
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'True'
+        name: sr2
+        type: bit [2:0]
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'True'
+        name: dr
+        type: bit [2:0]
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'True'
+        name: mode
+        type: bit
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'True'
+        name: baser
+        type: bit [2:0]
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'True'
+        name: pcoffset9
+        type: bit [8:0]
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'True'
+        name: pcoffset6
+        type: bit [5:0]
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'True'
+        name: imm5
+        type: bit [4:0]
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'True'
+        name: nzp
+        type: bit [2:0]
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'False'
+        name: PC
+        type: word
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'False'
+        name: instrmem_rd
+        type: bit
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'True'
+        name: instr_dout
+        type: word
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'False'
+        name: complete_instr
+        type: bit
+        unpacked_dimension: ''
+      use_dpi_link: 'False'

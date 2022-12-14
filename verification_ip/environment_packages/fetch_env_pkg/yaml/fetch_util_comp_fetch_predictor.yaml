@@ -1,0 +1,11 @@
+uvmf:
+  util_components:
+    fetch_predictor:
+      analysis_exports:
+      - name: agent_analysis_export
+        type: fetch_in_transaction
+      analysis_ports:
+      - name: predictor_analysis_port
+        type: fetch_out_transaction
+      existing_library_component: 'True'
+      type: predictor

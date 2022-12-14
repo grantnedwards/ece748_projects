@@ -1,0 +1,7 @@
+needs:
+  - $UVMF_HOME/uvmf_base_pkg/uvmf_base_pkg.compile
+  - ./control_in_common.compile
+incdir:
+  - .
+src:
+  - control_in_pkg.sv

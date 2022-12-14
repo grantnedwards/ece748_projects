@@ -1,6 +1,7 @@
 import uvm_pkg::*;
 import decode_in_pkg::*;
 import decode_test_pkg::*;
+import uvmf_base_pkg::*;
 
 
 module hvl_top;
